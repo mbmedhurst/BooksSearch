@@ -1,7 +1,11 @@
-module.exports = (Schema, model) => model('Book', new Schema({
+const mongoose = require('mongoose')
+
+const Book = new mongoose.Schema({
     title: String,
     authors: String,
     description: String,
     image: String,
     link: String,
-}))
+})
+
+module.exports = mongoose.model('Book', Book)
