@@ -1,11 +1,11 @@
 import React from 'react'
+import Form from '../../components/Search/Form'
 
 
 const Search = props => {
     return(
         <>
-            <input></input>
-            <button>Search</button>
+            <Form />
         </>
     )
 }
