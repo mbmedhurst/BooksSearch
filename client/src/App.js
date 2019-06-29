@@ -30,9 +30,9 @@ class App extends Component {
     console.log(searchTerm)
     Book.getAll(searchTerm)
     .then(({ data }) => {
-      this.setState({ searchArr: data })
+      // this.setState({ searchArr: data })
+      console.log(data)
     })
-    console.log(searchArr)
   }
   render() {
 
