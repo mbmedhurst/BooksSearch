@@ -4,10 +4,12 @@ import './App.css'
 import TopNav from './components/TopNav'
 import Search from './pages/Search'
 import Saved from './pages/Saved'
+import Book from './components/Utils/books.js'
 
 class App extends Component {
   state = {
     searchTerm: '',
+    searchArr: [],
     title: '',
     authors: '',
     description: '',
@@ -24,7 +26,13 @@ class App extends Component {
 
   handleSubmitSearch = event => {
     let searchTerm = this.state.searchTerm
+    let searchArr = this.state.searchArr
     console.log(searchTerm)
+    Book.getAll(searchTerm)
+    .then(({ data }) => {
+      this.setState({ searchArr: data })
+    })
+    console.log(searchArr)
   }
   render() {
 
