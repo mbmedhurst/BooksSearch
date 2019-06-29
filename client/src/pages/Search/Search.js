@@ -1,11 +1,24 @@
 import React from 'react'
-import Form from '../../components/Search/Form'
+import Input from '../../components/Search/Input'
 
 
 const Search = props => {
-    return(
+    
+
+    return (
         <>
-            <Form />
+            <Input 
+                searchTerm={props.searchTerm}
+                handleInputChange={props.handleInputChange}
+                handleSubmitSearch={props.handleSubmitSearch}
+            />
+            {/* <Card 
+                title={props.title}
+                authors={props.authors}
+                description={props.description}
+                url={props.url}
+                image={props.image}
+            /> */}
         </>
     )
 }
