@@ -14,8 +14,8 @@ class App extends Component {
     authors: '',
     description: '',
     selfLink: '',
+    imageLinks: '',
     thumbnail: '',
-    book: {},
   }
 
   handleInputChange = event => {
@@ -28,16 +28,11 @@ class App extends Component {
   handleSubmitSearch = event => {
     let searchTerm = this.state.searchTerm
     let booksArr = this.state.booksArr
-    let title = this.state.title
-    let authors = this.state.authors
-    let description = this.state.description
-    let thumbnail = this.state.thumbnail
-    let book = {}
     console.log(searchTerm)
     Book.getAll(searchTerm)
       .then(({ data }) => {
-        data.items.forEach(({ volumeInfo }) => {
-        booksArr.push(volumeInfo)
+        data.items.forEach(({ selfLink, volumeInfo }) => {
+        booksArr.push({selfLink, volumeInfo})
         this.setState(booksArr)
         })
         console.log(booksArr)
@@ -54,10 +49,12 @@ class App extends Component {
               searchTerm={this.state.searchTerm}
               handleInputChange={this.handleInputChange}
               handleSubmitSearch={this.handleSubmitSearch}
+              booksArr={this.state.booksArr}
               title={this.state.title}
               authors={this.state.authors}
               description={this.state.description}
               selfLink={this.state.selfLink}
+              imageLinks={this.state.imageLinks}
               thumbnail={this.state.thumbnail}
             />} />
           <Route exact path='/Saved' render={_ =>

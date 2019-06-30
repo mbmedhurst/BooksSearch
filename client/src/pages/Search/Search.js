@@ -12,11 +12,13 @@ const Search = props => {
                 handleInputChange={props.handleInputChange}
                 handleSubmitSearch={props.handleSubmitSearch}
             />
-            <Card 
+            <Card
+                booksArr={props.booksArr} 
                 title={props.title}
                 authors={props.authors}
                 description={props.description}
                 selfLink={props.selfLink}
+                imageLinks={props.imageLinks}
                 thumbnail={props.thumbnail}
             />
         </>
