@@ -9,12 +9,13 @@ import Book from './components/Utils/books.js'
 class App extends Component {
   state = {
     searchTerm: '',
-    searchArr: [],
+    booksArr: [],
     title: '',
     authors: '',
     description: '',
-    url: '',
-    image: '',
+    selfLink: '',
+    thumbnail: '',
+    book: {},
   }
 
   handleInputChange = event => {
@@ -26,13 +27,21 @@ class App extends Component {
 
   handleSubmitSearch = event => {
     let searchTerm = this.state.searchTerm
-    let searchArr = this.state.searchArr
+    let booksArr = this.state.booksArr
+    let title = this.state.title
+    let authors = this.state.authors
+    let description = this.state.description
+    let thumbnail = this.state.thumbnail
+    let book = {}
     console.log(searchTerm)
     Book.getAll(searchTerm)
-    .then(({ data }) => {
-      // this.setState({ searchArr: data })
-      console.log(data)
-    })
+      .then(({ data }) => {
+        data.items.forEach(({ volumeInfo }) => {
+        booksArr.push(volumeInfo)
+        this.setState(booksArr)
+        })
+        console.log(booksArr)
+      })
   }
   render() {
 
@@ -45,14 +54,19 @@ class App extends Component {
               searchTerm={this.state.searchTerm}
               handleInputChange={this.handleInputChange}
               handleSubmitSearch={this.handleSubmitSearch}
+              title={this.state.title}
+              authors={this.state.authors}
+              description={this.state.description}
+              selfLink={this.state.selfLink}
+              thumbnail={this.state.thumbnail}
             />} />
           <Route exact path='/Saved' render={_ =>
             <Saved
               title={this.state.title}
               authors={this.state.authors}
               description={this.state.description}
-              url={this.state.url}
-              image={this.state.image}
+              selfLink={this.state.selfLink}
+              thumbnail={this.state.thumbnail}
             />} />
         </div>
       </Router>

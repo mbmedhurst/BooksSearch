@@ -1,9 +1,9 @@
 import React from 'react'
 import Input from '../../components/Search/Input'
+import Card from '../../components/Search/Card'
 
 
 const Search = props => {
-    
 
     return (
         <>
@@ -12,13 +12,13 @@ const Search = props => {
                 handleInputChange={props.handleInputChange}
                 handleSubmitSearch={props.handleSubmitSearch}
             />
-            {/* <Card 
+            <Card 
                 title={props.title}
                 authors={props.authors}
                 description={props.description}
-                url={props.url}
-                image={props.image}
-            /> */}
+                selfLink={props.selfLink}
+                thumbnail={props.thumbnail}
+            />
         </>
     )
 }

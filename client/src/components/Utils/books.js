@@ -5,8 +5,7 @@ const Book = {
     postOne: newBook => axios.post('/books', newBook),
     // DELETE one book from db
     deleteOne: id => axios.delete(`books/${id}`),
-    // GET all books from search
-    // &fields=kind,items/selfLink,items/volumeInfo(title,description,%20authors,imageLinks/thumbnail
+    // GET all books from search => this is working!
     getAll: (searchTerm) => axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=AIzaSyDqhm1cXIFmmptk2YxKhbX_8QWMeYFx59k&fi&fields=items/volumeInfo(title,authors,description,imageLinks(thumbnail)),items/selfLink`)
 }
 
