@@ -2,10 +2,10 @@ const mongoose = require('mongoose')
 
 const Book = new mongoose.Schema({
     title: String,
-    authors: String,
+    authors: [String],
     description: String,
-    image: String,
-    link: String,
+    thumbnail: String,
+    infoLink: String,
 })
 
 module.exports = mongoose.model('Book', Book)

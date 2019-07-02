@@ -1,14 +1,18 @@
-import React from 'react'
+import React from 'react';
 
-const Card = props => {
+const SearchCard = props => {
+
     return (
-        props.booksArr.map(({ volumeInfo, title, description, authors, imageLinks, thumbnail, selfLink }) => {
+        props.booksArr.map(({ title, description, authors, thumbnail, infoLink }, index) => {
             return <div>
-                {selfLink}
-                {volumeInfo.title}
-                {volumeInfo.description}
-                {volumeInfo.authors}
-                {/* {volumeInfo.imageLinks.thumbnail} */}
+                <p>{title}</p>
+                <p>{authors}</p>
+                <p>{description}</p>
+                <img src={thumbnail}></img>
+                <p>
+                <button value={index} id='save' onClick={props.handleSaveBook}>Save</button>
+                <button id='view'><a style={{color: 'black', textDecoration: 'none'}} href={infoLink} target='_blank'>View</a></button>
+                </p>
                 <hr></hr>
             </div>
 
@@ -16,4 +20,4 @@ const Card = props => {
     )
 }
 
-export default Card
+export default SearchCard
