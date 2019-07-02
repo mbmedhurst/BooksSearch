@@ -63,19 +63,21 @@ class App extends Component {
 
   handleSaveBook = event => {
     console.log(event.target.value)
-    // let savedBooks = this.state.savedBooks
-    // let newBook = {
+    let booksArr = this.state.booksArr
+    let savedBooks = this.state.savedBooks
+    let newBook = booksArr[event.target.value]
+    //{
     //   title: this.state.title,
     //   authors: this.state.authors,
     //   description: this.state.description,
     //   infoLink: this.state.infoLink,
     //   thumbnail: this.state.thumbnail
     // }
-    // Book.postOne(newBook)
-    // this.state.savedBooks.push(newBook)
-    // this.setState({ ...savedBooks })
-    // console.log(newBook)
-    // console.log(savedBooks)
+    Book.postOne(newBook)
+    this.state.savedBooks.push(newBook)
+    this.setState({ ...savedBooks })
+    console.log(newBook)
+    console.log(savedBooks)
   }
   render() {
 

@@ -3,6 +3,7 @@ import React from 'react';
 const SearchCard = props => {
 
     return (
+        // get index position off the books array to use as the value of the save button
         props.booksArr.map(({ title, description, authors, thumbnail, infoLink }, index) => {
             return <div>
                 <p>{title}</p>
