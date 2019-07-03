@@ -9,7 +9,7 @@ const TopNav = props => {
 
   return (
     <div>
-      <AppBar position="static" style={{backgroundColor: '#01c5ff'}}>
+      <AppBar position="static" style={{backgroundColor: '#fbbc05'}}>
         <Toolbar>
           <h2 style={{marginRight: '20px'}}>
             Google Books
