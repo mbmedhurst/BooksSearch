@@ -26,7 +26,6 @@ class App extends Component {
     this.setState({
       [event.target.id]: event.target.value
     })
-    // console.log(event.target.value)
   }
 
   // search google books
@@ -34,7 +33,6 @@ class App extends Component {
   handleSubmitSearch = event => {
     let searchTerm = this.state.searchTerm
     let booksArr = this.state.booksArr
-    // console.log(searchTerm)
     Book.getBooks(searchTerm)
       .then(({ data }) => {
         data.items.forEach(({ volumeInfo }) => {
@@ -50,8 +48,6 @@ class App extends Component {
           booksArr.push(this.state.book)
           this.setState(booksArr)
         })
-
-        console.log(booksArr)
       })
   }
 
@@ -75,30 +71,25 @@ class App extends Component {
     let dbBooks = []
     Book.getAll()
       .then(({ data }) => {
-        // console.log(data)
         dbBooks.push(data)
         this.setState({ dbBooks: data })
-        // console.log(dbBooks)
       })
   }
 
   // delete a book from the database
+  // this is working!
   handleDeleteBook = (event, _id) => {
     let dbBooks = this.state.dbBooks
-    // console.log(event.target.value)
     Book.deleteOne(event.target.value)
       .then(({ data }) => {
-        console.log(data)
         this.setState({
           dbBooks: this.state.dbBooks.filter(book => book._id !== _id)
         })
       })
     Book.getAll()
       .then(({ data }) => {
-        // console.log(data)
         dbBooks.push(data)
         this.setState({ dbBooks: data })
-        // console.log(dbBooks)
       })
   }
   render() {
