@@ -19,7 +19,13 @@ class App extends Component {
     thumbnail: '',
     savedBooks: [],
     dbBooks: [],
-    book: {}
+    book: {
+      title: '',
+      authors: '',
+      description: '',
+      imageLinks: '',
+      thumbnail: '',
+    }
   }
 
   handleInputChange = event => {
@@ -54,7 +60,7 @@ class App extends Component {
   // save a book to the db
   // this is working!
   handleSaveBook = event => {
-    console.log(event.target.value)
+    console.log(event.target)
     let booksArr = this.state.booksArr
     let savedBooks = this.state.savedBooks
     let newBook = booksArr[event.target.value]
