@@ -19,14 +19,7 @@ class App extends Component {
     thumbnail: '',
     savedBooks: [],
     dbBooks: [],
-    book: {
-      title: '',
-      description: '',
-      authors: '',
-      infoLink: '',
-      thumbnail: ''
-
-    }
+    book: {}
   }
 
   handleInputChange = event => {
@@ -62,6 +55,8 @@ class App extends Component {
       })
   }
 
+  // save a book to the db
+  // this is working!
   handleSaveBook = event => {
     console.log(event.target.value)
     let booksArr = this.state.booksArr
@@ -74,16 +69,38 @@ class App extends Component {
     console.log(savedBooks)
   }
 
+  // saved books displayed on page mount
+  // this is working!
   componentDidMount() {
     let dbBooks = []
     Book.getAll()
-        .then(({ data }) => {
-          console.log(data)
-          dbBooks.push(data)
-            this.setState({ dbBooks: data })
-            console.log(dbBooks)
+      .then(({ data }) => {
+        // console.log(data)
+        dbBooks.push(data)
+        this.setState({ dbBooks: data })
+        // console.log(dbBooks)
+      })
+  }
+
+  // delete a book from the database
+  handleDeleteBook = (event, _id) => {
+    let dbBooks = this.state.dbBooks
+    // console.log(event.target.value)
+    Book.deleteOne(event.target.value)
+      .then(({ data }) => {
+        console.log(data)
+        this.setState({
+          dbBooks: this.state.dbBooks.filter(book => book._id !== _id)
         })
-}
+      })
+    Book.getAll()
+      .then(({ data }) => {
+        // console.log(data)
+        dbBooks.push(data)
+        this.setState({ dbBooks: data })
+        // console.log(dbBooks)
+      })
+  }
   render() {
 
     return (
@@ -109,6 +126,7 @@ class App extends Component {
           <Route exact path='/Saved' render={_ =>
             <Saved
               componentDidMount={this.componentDidMount}
+              handleDeleteBook={this.handleDeleteBook}
               dbBooks={this.state.dbBooks}
               savedBooks={this.state.savedBooks}
               title={this.state.title}

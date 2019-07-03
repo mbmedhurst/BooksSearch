@@ -8,6 +8,7 @@ const Saved = props => {
             <h1>Hello World</h1>
             <SavedCard
                 componentDidMount={props.componentDidMount}
+                handleDeleteBook={props.handleDeleteBook}
                 dbBooks={props.dbBooks}                
                 savedBooks={props.savedBooks} 
                 volumeInfo={props.volumeInfo}
