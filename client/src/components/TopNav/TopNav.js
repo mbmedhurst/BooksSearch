@@ -9,15 +9,15 @@ const TopNav = props => {
 
   return (
     <div>
-      <AppBar position="static" color="default">
+      <AppBar position="static" style={{backgroundColor: '#01c5ff'}}>
         <Toolbar>
           <h2 style={{marginRight: '20px'}}>
             Google Books
           </h2>
-          <Button href='./' variant="h6" color="inherit">
+          <Button href='./' variant="h6" style={{color: 'white', fontWeight: 'bold'}}>
             Search
           </Button>
-          <Button href='/saved' variant="h6" color="inherit">
+          <Button href='/saved' variant="h6" style={{color: 'white', fontWeight: 'bold'}}>
             Saved
           </Button>
         </Toolbar>

@@ -5,7 +5,6 @@ import SavedCard from '../../components/Saved/Card'
 const Saved = props => {
     return (
         <>
-            <h1>Hello World</h1>
             <SavedCard
                 componentDidMount={props.componentDidMount}
                 handleDeleteBook={props.handleDeleteBook}
