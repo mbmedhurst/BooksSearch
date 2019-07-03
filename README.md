@@ -1,3 +1,3 @@
 # BooksSearch
 
-![Books Search Demo](src/assets/images/BooksSearchDemo.gif)
+![Books Search Demo](client/src/assets/images/BooksSearchDemo.gif)
