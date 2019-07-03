@@ -18,6 +18,7 @@ class App extends Component {
     imageLinks: '',
     thumbnail: '',
     savedBooks: [],
+    dbBooks: [],
     book: {
       title: '',
       description: '',
@@ -41,7 +42,7 @@ class App extends Component {
     let searchTerm = this.state.searchTerm
     let booksArr = this.state.booksArr
     // console.log(searchTerm)
-    Book.getAll(searchTerm)
+    Book.getBooks(searchTerm)
       .then(({ data }) => {
         data.items.forEach(({ volumeInfo }) => {
           this.setState({
@@ -66,19 +67,23 @@ class App extends Component {
     let booksArr = this.state.booksArr
     let savedBooks = this.state.savedBooks
     let newBook = booksArr[event.target.value]
-    //{
-    //   title: this.state.title,
-    //   authors: this.state.authors,
-    //   description: this.state.description,
-    //   infoLink: this.state.infoLink,
-    //   thumbnail: this.state.thumbnail
-    // }
     Book.postOne(newBook)
     this.state.savedBooks.push(newBook)
     this.setState({ ...savedBooks })
     console.log(newBook)
     console.log(savedBooks)
   }
+
+  componentDidMount() {
+    let dbBooks = []
+    Book.getAll()
+        .then(({ data }) => {
+          console.log(data)
+          dbBooks.push(data)
+            this.setState({ dbBooks: data })
+            console.log(dbBooks)
+        })
+}
   render() {
 
     return (
@@ -99,16 +104,19 @@ class App extends Component {
               description={this.state.description}
               infoLink={this.state.infoLink}
               imageLinks={this.state.imageLinks}
-            // thumbnail={this.state.thumbnail}
+              thumbnail={this.state.thumbnail}
             />} />
           <Route exact path='/Saved' render={_ =>
             <Saved
+              componentDidMount={this.componentDidMount}
+              dbBooks={this.state.dbBooks}
+              savedBooks={this.state.savedBooks}
               title={this.state.title}
               authors={this.state.authors}
               description={this.state.description}
               infoLink={this.state.infoLink}
               imageLinks={this.state.imageLinks}
-            // thumbnail={this.state.volumeInfo.imageLinks.thumbnail}
+              thumbnail={this.state.thumbnail}
             />} />
         </div>
       </Router>

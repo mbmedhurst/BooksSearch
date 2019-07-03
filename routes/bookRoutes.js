@@ -9,6 +9,9 @@ module.exports = app => {
     // &fields=items/selfLink,items/volumeInfo(title,description,%20authors,imageLinks/thumbnail
     // app.get(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=AIzaSyDqhm1cXIFmmptk2YxKhbX_8QWMeYFx59k&fields=items/volumeInfo(title,authors,description,imageLinks(thumbnail),infoLink)`), (req, res) => Book.find((e, docs) => e ? console.log(e) : res.json(docs))
 
+    // GET all saved books from the db
+    app.get('/books', (req, res) => Book.find((e, docs) => e ? console.log(e) : res.json(docs)))
+    
     // POST a book to the db
     // this is working!
     app.post('/books', (req, res) => Book.create(req.body, e => e ? console.log(e) : res.sendStatus(200)))

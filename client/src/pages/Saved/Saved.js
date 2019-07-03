@@ -1,9 +1,23 @@
 import React from 'react'
+import SavedCard from '../../components/Saved/Card'
 
 
 const Saved = props => {
-    return(
-        <h1>This is the Saved page</h1>
+    return (
+        <>
+            <h1>Hello World</h1>
+            <SavedCard
+                componentDidMount={props.componentDidMount}
+                dbBooks={props.dbBooks}                
+                savedBooks={props.savedBooks} 
+                volumeInfo={props.volumeInfo}
+                title={props.title}
+                authors={props.authors}
+                description={props.description}
+                imageLinks={props.imageLinks}
+                thumbnail={props.thumbnail}
+            />
+        </>
     )
 }
 
