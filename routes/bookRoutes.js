@@ -18,5 +18,5 @@ module.exports = app => {
 
     // DELETE an book from the db
     // this is working!
-    app.delete('/books/:_id', (req, res) => Book.remove({ _id: req.params._id }, e => e ? console.log(e) : res.sendStatus(200)))
+    app.delete('/books/:_id', (req, res) => Book.deleteOne({ _id: req.params._id }, e => e ? console.log(e) : res.sendStatus(200)))
 }
