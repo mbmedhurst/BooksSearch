@@ -1,11 +1,15 @@
 {
-  "name": "BooksSearch",
+  "name": "bookssearch",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "repository": {
     "type": "git",
@@ -20,8 +24,10 @@
   "homepage": "https://github.com/mbmedhurst/BooksSearch#readme",
   "dependencies": {
     "axios": "^0.19.0",
+    "build": "^0.1.4",
     "cheerio": "^1.0.0-rc.3",
     "express": "^4.17.1",
-    "mongoose": "^5.6.1"
+    "mongoose": "^5.6.1",
+    "react-scripts": "^3.0.1"
   }
 }
