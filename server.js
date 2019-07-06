@@ -1,5 +1,5 @@
 const express = require('express')
-const { join } = require('path')
+const { join, resolve } = require('path')
 const app = express()
 
 app.use(express.static(join(__dirname, 'client')))
@@ -9,11 +9,12 @@ app.use(express.json())
 if(process.env.NODE_ENV === 'production'){
     //set static folder
     app.use(express.static('client/build'));
+    app.get('*',(req, res) => {
+    res.sendFile(resolve(__dirname, 'client', 'build', 'index.html'));
+})
 }
 
-// app.get('*',(req, res) => {
-//     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-// })
+
 
 require('./routes')(app)
 
