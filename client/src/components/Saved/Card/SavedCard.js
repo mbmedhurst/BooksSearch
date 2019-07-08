@@ -5,7 +5,6 @@ import Grid from '@material-ui/core/Grid'
 const SavedCard = props => {
 
     return (
-        // get index position off the books array to use as the value of the save button
         props.dbBooks.map(({ _id, title, description, authors, thumbnail, infoLink }) => {
             return <Paper style={{ backgroundColor: 'rgba(52,168,83,0.2)', padding: '20px', marginLeft: '50px', marginRight: '50px', marginTop: '50px' }}>
                 <Grid container spacing={3}>
