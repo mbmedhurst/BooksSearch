@@ -79,6 +79,7 @@ class App extends Component {
       .then(({ data }) => {
         dbBooks.push(data)
         this.setState({ dbBooks: data })
+        console.log(dbBooks)
       })
   }
 

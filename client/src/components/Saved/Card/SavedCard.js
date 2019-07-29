@@ -6,6 +6,7 @@ const SavedCard = props => {
 
     return (
         props.dbBooks.map(({ _id, title, description, authors, thumbnail, infoLink }) => {
+            <>
             return <Paper style={{ backgroundColor: 'rgba(52,168,83,0.2)', padding: '20px', marginLeft: '50px', marginRight: '50px', marginTop: '50px' }}>
                 <Grid container spacing={3}>
                     <Grid item xs={6}>
@@ -24,7 +25,7 @@ const SavedCard = props => {
                     </Grid>
                 </Grid>
             </Paper>
-
+            </>
         })
     )
 }
