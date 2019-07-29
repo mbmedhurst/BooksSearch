@@ -79,8 +79,8 @@ class App extends Component {
       .then(({ data }) => {
         console.log(data)
         dbBooks.push(data)
-        this.setState({ dbBooks: Array.from(data) })
-        // console.log(dbBooks)
+        this.setState({ dbBooks: data })
+        console.log(dbBooks)
       })
   }
 
@@ -97,7 +97,7 @@ class App extends Component {
     Book.getAll()
       .then(({ data }) => {
         dbBooks.push(data)
-        this.setState({ dbBooks: Array.from(data) })
+        this.setState({ dbBooks: data })
       })
   }
   render() {
