@@ -121,7 +121,7 @@ class App extends Component {
               imageLinks={this.state.imageLinks}
               thumbnail={this.state.thumbnail}
             />} />
-          <Route exact path='/Saved' render={_ =>
+          <Route exact path='/saved' render={_ =>
             <Saved
               componentDidMount={this.componentDidMount}
               handleDeleteBook={this.handleDeleteBook}
