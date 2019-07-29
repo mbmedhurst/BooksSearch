@@ -74,14 +74,13 @@ class App extends Component {
   // saved books displayed on page mount
   // this is working!
   componentDidMount() {
-    const dbBooks = []
+    let dbBooks = []
     Book.getAll()
       .then(({ data }) => {
         console.log(data)
         dbBooks.push(data)
-        this.setState({ dbBooks: Object.keys(data).map(i => data[i])})
-        console.log(dbBooks)
-        console.log(data)
+        this.setState({ dbBooks: data })
+        // console.log(dbBooks)
       })
   }
 
