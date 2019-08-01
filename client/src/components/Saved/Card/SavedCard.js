@@ -10,7 +10,6 @@ class SavedCard extends Component {
         if (this.props.dbBooks === undefined) {
             return <div>Loading...</div>
         } else {
-
             return (
                 this.props.dbBooks.map(({ _id, title, description, authors, thumbnail, infoLink }) => {
                     return <Paper style={{ backgroundColor: 'rgba(52,168,83,0.2)', padding: '20px', marginLeft: '50px', marginRight: '50px', marginTop: '50px' }}>
