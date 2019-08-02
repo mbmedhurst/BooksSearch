@@ -7,7 +7,7 @@ class SavedCard extends Component {
     render() {
         const { title, _id, description, authors, thumbnail, infoLink } = this.props
 
-        if (this.props.dbBooks === []) {
+        if (this.props.dbBooks.length < 0) {
             return <div>Loading...</div>
         } else {
             return (
