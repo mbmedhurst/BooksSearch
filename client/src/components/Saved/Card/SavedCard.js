@@ -8,7 +8,7 @@ class SavedCard extends Component {
         const { title, _id, description, authors, thumbnail, infoLink } = this.props
 
         if (this.props.dbBooks.length < 1) {
-            return <div>Loading...</div>
+            return null
         } else {
             return (
                 this.props.dbBooks.map(({ _id, title, description, authors, thumbnail, infoLink }) => {
