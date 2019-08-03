@@ -20,6 +20,6 @@ if (process.env.NODE_ENV === 'production') {
 
 require('./routes')(app)
 
-require('mongoose').connect(process.env.MONGODB_URI || 'mongodb://mbmedhurst:marianna1018@ds259347.mlab.com:59347/heroku_vf7z135k', { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: true })
+require('mongoose').connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/googlebooks_db', { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: true })
     .then(_ => app.listen(process.env.PORT || 3001))
     .catch(e => console.log(e))
