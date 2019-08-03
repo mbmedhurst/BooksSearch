@@ -76,10 +76,10 @@ class App extends Component {
   componentDidMount() {
     let dbBooks = []
     Book.getAll()
-      .then(({ data : savedBks }) => {
-        console.log(savedBks)
-        dbBooks.push(savedBks)
-        this.setState({ dbBooks: savedBks })
+      .then(r => {
+        console.log(r)
+        // dbBooks.push(data)
+        // this.setState({ dbBooks: data })
       })
   }
 
@@ -95,8 +95,8 @@ class App extends Component {
       })
     Book.getAll()
       .then(({ data }) => {
-        dbBooks.push({data})
-        this.setState({ dbBooks: {data} })
+        dbBooks.push(data)
+        this.setState({ dbBooks: data })
       })
   }
   render() {

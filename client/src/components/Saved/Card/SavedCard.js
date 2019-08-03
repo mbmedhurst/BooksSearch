@@ -3,13 +3,10 @@ import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 
 const SavedCard = ({dbBooks = [], handleDeleteBook}) => {
-    console.log(dbBooks)
+    // console.log(dbBooks)
         // const { dbBooks, title, _id, description, authors, thumbnail, infoLink } = this.props
-
-        if (!dbBooks.length) {
-            return <div>Loading...</div>
-            // need to somehow get the app to wait for the data to be retunred from the database
-        } return (
+        // need to somehow get the app to wait for the data to be retunred from the database
+        return (
             
             dbBooks.map(({ _id, title, description, authors, thumbnail, infoLink }) => {
                 return <Paper style={{ backgroundColor: 'rgba(52,168,83,0.2)', padding: '20px', marginLeft: '50px', marginRight: '50px', marginTop: '50px' }}>
