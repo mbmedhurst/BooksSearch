@@ -78,8 +78,8 @@ class App extends Component {
     Book.getAll()
       .then(({ data : savedBks }) => {
         console.log(savedBks)
-        dbBooks.push(data)
-        this.setState({ dbBooks: data })
+        dbBooks.push(savedBks)
+        this.setState({ dbBooks: savedBks })
       })
   }
 
