@@ -77,6 +77,7 @@ class App extends Component {
     let dbBooks = []
     Book.getAll()
       .then(({ data }) => {
+        console.log(data)
         dbBooks.push(data)
         this.setState({ dbBooks: data })
       })
