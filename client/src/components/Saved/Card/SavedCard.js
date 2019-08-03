@@ -36,6 +36,3 @@ class SavedCard extends Component {
 }
 
 export default SavedCard
-
-// if (this.props.item === undefined) { return <div>Loading....</div>; } else { return 
-
