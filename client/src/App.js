@@ -38,6 +38,7 @@ class App extends Component {
   // this is working!
   handleSubmitSearch = event => {
     this.setState({ booksArr: []})
+    let searchTerm = this.state.searchTerm
     let booksArr = this.state.booksArr
     Book.getBooks(searchTerm)
       .then(({ data }) => {
