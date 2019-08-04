@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.json())
 
 require('./routes')(app)
-app.get('/', (req, res) => res.sendFile(join(__dirname, 'client', 'build', 'index.html')))
+app.get('https://googlebooksmbm.herokuapp.com', (req, res) => res.sendFile(join(__dirname, 'client', 'build', 'index.html')))
 
 require('mongoose').connect(MONGODB_URI, { useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true })
   .then(_ => app.listen(process.env.PORT || 3001))
