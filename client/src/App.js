@@ -38,7 +38,7 @@ class App extends Component {
   // this is working!
   handleSubmitSearch = event => {
     let searchTerm = this.state.searchTerm
-    let booksArr = []
+    let booksArr = this.state.booksArr
     Book.getBooks(searchTerm)
       .then(({ data }) => {
         data.items.forEach(({ volumeInfo }) => {
