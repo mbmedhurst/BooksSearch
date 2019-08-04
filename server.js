@@ -3,16 +3,22 @@ const bodyParser = require('body-parser')
 const { join, resolve } = require('path')
 const app = express()
 
-let MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/adulting_db'
-
 app.use(express.static(join(__dirname, 'client')))
 app.use(express.urlencoded({ extendecd: true }))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.json())
 
-require('./routes')(app)
-app.get('https://googlebooksmbm.herokuapp.com', (req, res) => res.sendFile(join(__dirname, 'client', 'build', 'index.html')))
+if (process.env.NODE_ENV === 'production') {
+    //set static folder
+    app.use(express.static('client/build'))
+    app.get('/', (req, res) => {
+        res.sendFile(resolve(__dirname, 'client', 'build', 'index.html'))
+    })
+}
 
-require('mongoose').connect(MONGODB_URI, { useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true })
-  .then(_ => app.listen(process.env.PORT || 3001))
-  .catch(e => console.log(e))
+
+
+require('./routes')(app)
+require('mongoose').connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/googlebooks_db', { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: true })
+    .then(_ => app.listen(process.env.PORT || 3001))
+    .catch(e => console.log(e))
