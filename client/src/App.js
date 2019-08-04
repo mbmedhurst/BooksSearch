@@ -37,7 +37,7 @@ class App extends Component {
   // search google books
   // this is working!
   handleSubmitSearch = event => {
-    let searchTerm = ''
+    let searchTerm = this.state.searchTerm
     let booksArr = []
     Book.getBooks(searchTerm)
       .then(({ data }) => {
