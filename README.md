@@ -12,7 +12,7 @@
 * View or Delete book by clicking on the appropriate button
 
 ### Technologies Used
-* React.js (context and hooks)
+* React.js
 * Google Books API
 * MongoDB
 * Material-UI
